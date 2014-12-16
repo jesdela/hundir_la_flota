@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, HundirLaFlotaActivity!</string>
+    <string name="app_name">HundirLaFlota</string>
+    <string name="jugar">JUGAR</string>
+    <string name="nueva_partida">NUEVA \nPARTIDA</string>
+    <string name="continuar">CONTINUAR \nPARTIDA</string>
+    <string name="ayuda">AYUDA</string>
+    <string name="preferencias">PREFERENCIAS</string>
+    <string name="sonido_on">SONIDO ON</string>
+    <string name="duracioncpu">DURACION TURNO CPU</string>
+    <string name="sonido_off">SONIDO OFF</string>
+    <string name="check">check</string>
+    <string name="sonido">sonido</string>
+    <string-array name="duracion">
+        <item >1</item>
+        <item >2</item>
+        <item >3</item>
+    </string-array>
+    <string name="ayuda1">
+    	Ayuda \n
+    	
+     
+    	<mas>name="dasd"</mas></string>
+    <string name="Titulo">Elija un tamaño de barco e indique su lugar: \n</string>
+    <string name="x4">x4</string>
+    <string name="x1">x1</string>
+    <string name="x2">x2</string>
+    <string name="x3">x3</string>
+    <string name="A">A</string>
+    <string name="B">B</string>
+    <string name="C">C</string>
+    <string name="D">D</string>
+    <string name="E">E</string>
+    <string name="F1">1</string>
+    <string name="F2">2</string>
+    <string name="F3">3</string>
+    <string name="F4">4</string>
+    <string name="F5">5</string>
+    <string name="BLANCO"> </string>
+    <string name="F6">6</string>
+    <string name="F">F</string>
+    <string name="TituloJugar">	Elige una posición:</string>
+    <string name="Posición">Posición:</string>
+    <string name="TituloCpu">		Turno de la CPU</string>
+    <string name="EleccionCpu">	La CPU ha elegido: </string>
+    <string name="TurnoJug">		Turno del Jugador</string>
+    
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TabHost android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+ 
+         <TabWidget android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabs"/>
+ 
+         <FrameLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@android:id/tabcontent" >
+ 
+            <LinearLayout android:id="@+id/Juego"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <TextView android:id="@+id/textView1"
+                    android:text="Hundir La Flota es el clásico juego donde debe encontrar y hundir los barcos del contrincante antes de que éste hunda los suyos."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+ 
+            <LinearLayout android:id="@+id/Normas"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <TextView android:id="@+id/textView2"
+                    android:text="- Inicialmente dispone de 3 barcos de tamaño 1, 2 barcos de tamaño 2 y 1 barco de tamaño 3. Debe colocarlos en el tablero eligiendo un tamaño de barco y seleccionando las casillas del tablero que desea. Recuerde que los barcos no pueden tocarse entre sí, unicamente pueden rozarse diagonalmente.\n- Cuando acabe, la CPU creaŕa su tablero de manera completamente aleatoria.\n- El primer turno es para el jugador. Cuando elija una casilla, ésta quedará marcada para recordar que ya está elegida y se mostrará por pantalla el resultado. El jugador no perderá el turno hasta que toque agua.- Cuando pase el turno a CPU, ésta elegirá sus casillas e irá saliendo el resultado por pantalla igualmente. La CPU también perderá su turno cuando toque agua."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+ 
+         </FrameLayout>
+    </LinearLayout>
+ 
+</TabHost>
+    
+
+</LinearLayout>
