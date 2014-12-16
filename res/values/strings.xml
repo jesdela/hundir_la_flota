@@ -41,7 +41,7 @@
     <string name="F6">6</string>
     <string name="F">F</string>
     <string name="TituloJugar">	Elige una posición:</string>
-    <string name="Posición">Posición:</string>
+    <string name="posicion">Posición:</string>
     <string name="TituloCpu">		Turno de la CPU</string>
     <string name="EleccionCpu">	La CPU ha elegido: </string>
     <string name="TurnoJug">		Turno del Jugador</string>
