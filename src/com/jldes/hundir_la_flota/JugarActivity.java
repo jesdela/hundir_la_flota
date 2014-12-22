@@ -2,8 +2,11 @@ package com.jldes.hundir_la_flota;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import com.jldes.hundir_la_flota.R;
 
 public class JugarActivity extends Activity {
 	String turno="0";
@@ -32,7 +34,13 @@ public class JugarActivity extends Activity {
 		});
         
         Button continuar = (Button)findViewById(R.id.continuar);
-        
+        SharedPreferences prefs =
+       	     getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+       if (prefs.getBoolean("continuar", false)) {
+       	continuar.setEnabled(true);
+		} else {
+       	continuar.setEnabled(false);
+		}
         continuar.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {

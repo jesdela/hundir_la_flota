@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#333">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -13,76 +14,8 @@
             android:id="@+id/tableLayout1"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <TableRow
-                android:id="@+id/TableRow01"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.05" >
-
-                <TextView
-                    android:id="@+id/TextView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/BLANCO"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/TextView09"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="@string/A"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/TextView08"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="@string/B"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/TextView07"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="@string/C"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/TextView06"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="@string/D"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/TextView01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="@string/E"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/TextView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="@string/F"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            </TableRow>
+            android:layout_weight="1"
+            android:background="@drawable/radar4" >
 
             <TableRow
                 android:id="@+id/tableRow1"
@@ -90,54 +23,47 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/F1"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
                 <Button
                     android:id="@+id/ButtonA1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="A1" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonB1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="B1" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonC1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="C1" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonD1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="D1" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonE1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="E1" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonF1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="F1" />
+                    android:background="@drawable/cuadricula" />
 
             </TableRow>
 
@@ -147,54 +73,48 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/TextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/F2"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Button
                     android:id="@+id/ButtonA2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="A2" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonB2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="B2" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonC2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="C2" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonD2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="D2" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonE2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="E2" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonF2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="F2" />
+                    android:background="@drawable/cuadricula" />
 
             </TableRow>
 
@@ -204,54 +124,47 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/TextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/F3"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
                 <Button
                     android:id="@+id/ButtonA3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="A3" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonB3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="B3" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonC3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="C3" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonD3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="D3" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonE3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="E3" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonF3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="F3" />
+                    android:background="@drawable/cuadricula"/>
 
             </TableRow>
 
@@ -261,54 +174,48 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/TextView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/F4"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Button
                     android:id="@+id/ButtonA4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="A4" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonB4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="B4" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonC4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="C4" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonD4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="D4" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonE4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="E4" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonF4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="F4" />
+                    android:background="@drawable/cuadricula" />
 
             </TableRow>
 
@@ -318,54 +225,48 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/TextView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/F5"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Button
                     android:id="@+id/ButtonA5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="A5" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonB5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="B5" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonC5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="C5" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonD5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="D5" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonE5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="E5" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonF5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="F5" />
+                    android:background="@drawable/cuadricula" />
 
             </TableRow>
 
@@ -375,54 +276,47 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-                <TextView
-                    android:id="@+id/TextView15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/F6"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
                 <Button
                     android:id="@+id/ButtonA6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="A6" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonB6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="B6" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonC6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="C6" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonD6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="D6" />
+                    android:background="@drawable/cuadricula"/>
 
                 <Button
                     android:id="@+id/ButtonE6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="E6" />
+                    android:background="@drawable/cuadricula" />
 
                 <Button
                     android:id="@+id/ButtonF6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="F6" />
+                    android:background="@drawable/cuadricula" />
 
             </TableRow>
 
@@ -438,130 +332,123 @@
                 android:id="@+id/TextView02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_alignLeft="@+id/textView1"
+                android:layout_margin="22dp"
                 android:text="@string/TurnoJug"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TableLayout
-                android:id="@+id/tableLayout2"
+                android:id="@+id/tableLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginBottom="41dp"
                 android:layout_marginLeft="21dp" >
+
+                <TableRow
+                    android:id="@+id/tableRow12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/tableLayout2"
+                    android:layout_weight="1" >
+
+                    <Button
+                        android:id="@+id/b1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1" />
+
+                    <TextView
+                        android:id="@+id/X1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="x"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:id="@+id/Barco1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/tableRow6"
+                    android:layout_weight="1" >
+
+                    <Button
+                        android:id="@+id/b2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2" />
+
+                    <TextView
+                        android:id="@+id/X2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="x"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:id="@+id/Barco2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow14	"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/tableRow7"
+                    android:layout_weight="1" >
+
+                    <Button
+                        android:id="@+id/b3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3" />
+
+                    <TextView
+                        android:id="@+id/X4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="x"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:id="@+id/Barco3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </TableRow>
             </TableLayout>
 
-            <TableRow
-                android:id="@+id/tableRow6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/tableLayout2"
-                android:layout_weight="1" >
-
-                <Button
-                    android:id="@+id/b1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1" />
-
-                <TextView
-                    android:id="@+id/X1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="x"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/Barco1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/tableRow6"
-                android:layout_weight="1" >
-
-                <Button
-                    android:id="@+id/b2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2" />
-
-                <TextView
-                    android:id="@+id/X2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="x"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/Barco2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/tableRow7"
-                android:layout_weight="1" >
-
-                <Button
-                    android:id="@+id/b3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3" />
-
-                <TextView
-                    android:id="@+id/X4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="x"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <TextView
-                    android:id="@+id/Barco3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </TableRow>
-			<Button
-                android:id="@+id/continuar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/tableRow8"
-                android:layout_alignLeft="@+id/tableRow8"
-                android:text="@string/continuar" />
             <TextView
                 android:id="@+id/estado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tableLayout2"
-                android:layout_centerVertical="true"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignLeft="@+id/TextView02"
                 android:layout_below="@+id/TextView02"
-                android:layout_marginTop="22dp"
-                android:layout_weight="1"
-                android:text="@string/TituloJugar"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </RelativeLayout>

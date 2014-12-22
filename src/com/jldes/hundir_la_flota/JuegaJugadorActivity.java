@@ -4,12 +4,16 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,7 +23,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.jldes.hundir_la_flota.R;
 
 public class JuegaJugadorActivity extends Activity {
 	int barcos;	
@@ -85,6 +88,7 @@ public class JuegaJugadorActivity extends Activity {
     	    		Tablero.tablcpu[fil][col][2]=c;
         		}
     		}
+    		Log.d("Pruebas", "Entro");
     		barcos=Integer.parseInt(fichero.readLine());
     		x1.setText(fichero.readLine());
     		x2.setText(fichero.readLine());
@@ -98,21 +102,21 @@ public class JuegaJugadorActivity extends Activity {
 					casilla[fil-3][col-3].setEnabled(false);
 					switch (Tablero.tablcpu[fil][col][0]) {
 					case 0:
-						casilla[fil-3][col-3].setText("A");
+						casilla[fil-3][col-3].setBackgroundResource(R.drawable.agua);;
 						break;
 					default:
 						switch (Tablero.tablcpu[fil][col][2]) {
 						case 1:
-							casilla[fil-3][col-3].setText("H");
+							casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
 							break;
 						case 2:
 							if ((Tablero.tablcpu[fil+1][col][1]==1&&Tablero.tablcpu[fil+1][col][2]==2)||
 									(Tablero.tablcpu[fil-1][col][1]==1&&Tablero.tablcpu[fil-1][col][2]==2)||
 									(Tablero.tablcpu[fil][col+1][1]==1&&Tablero.tablcpu[fil][col+1][2]==2)||
 									(Tablero.tablcpu[fil][col-1][1]==1&&Tablero.tablcpu[fil][col-1][2]==2)) {
-								casilla[fil-3][col-3].setText("H");	
+								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
 							} else {
-								casilla[fil-3][col-3].setText("T");
+								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
 							}
 							break;
 						case 3:
@@ -124,9 +128,9 @@ public class JuegaJugadorActivity extends Activity {
 										(Tablero.tablcpu[fil][col+1][2]==3||Tablero.tablcpu[fil][col-1][2]==3))
 									||(Tablero.tablcpu[fil][col+1][1]==1&&Tablero.tablcpu[fil][col+2][1]==1&&Tablero.tablcpu[fil][col+2][2]==3)
 									||(Tablero.tablcpu[fil][col-1][1]==1&&Tablero.tablcpu[fil][col-2][1]==1&&Tablero.tablcpu[fil][col-2][2]==3)) {
-								casilla[fil-3][col-3].setText("H");	
+								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);	
 							} else {
-								casilla[fil-3][col-3].setText("T");
+								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
 							}
 							break;
 						}
@@ -141,7 +145,6 @@ public class JuegaJugadorActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jugar_partida);
         barcos=6;
-        final Button cont = (Button)findViewById(R.id.continuar);
         final Button casilla[][] = new Button[6][6];
 		casilla[0][0]=(Button)findViewById(R.id.ButtonA1);
 		casilla[0][1]=(Button)findViewById(R.id.ButtonB1);
@@ -181,7 +184,6 @@ public class JuegaJugadorActivity extends Activity {
 		casilla[5][5]=(Button)findViewById(R.id.ButtonF6);
 		int fil;
 		int col;
-		cont.setEnabled(false);
 		BufferedWriter fichturno;
 		try {
 		fichturno = new BufferedWriter(new FileWriter(
@@ -201,6 +203,7 @@ public class JuegaJugadorActivity extends Activity {
 				casilla[fil][col].setOnClickListener(new OnClickListener() {
 					
 					public void onClick(View v) {
+						Log.d("Prueba", "fial: "+fil2+" col "+col2);
 						Tablero.tablcpu[fil2][col2][1]=1;
 						comprobar(fil2,col2);
 						casilla[fil2-3][col2-3].setEnabled(false);
@@ -256,30 +259,25 @@ public class JuegaJugadorActivity extends Activity {
 		casilla[5][3]=(Button)findViewById(R.id.ButtonD6);
 		casilla[5][4]=(Button)findViewById(R.id.ButtonE6);
 		casilla[5][5]=(Button)findViewById(R.id.ButtonF6);
-    	final Button cont = (Button)findViewById(R.id.continuar);
+    	Log.d("Prueba", "x "+x+" y "+y+"= "+Tablero.tablcpu[x][y][0]);
     	Tablero.tablcpu[x][y][1]=1;
     	if (Tablero.tablcpu[x][y][0]==0){
     		   		
-    		texto.setText("Agua");
-    		casilla[x-3][y-3].setText("A");
+//    		texto.setText("Agua");
+    		Toast.makeText(this, "Agua", Toast.LENGTH_SHORT).show();
+    		casilla[x-3][y-3].setBackgroundResource(R.drawable.agua);
     		for (int f=0;f<6;f++)
     		{
     			for (int c=0;c<6;c++)
-    			{
+    			{	
     					casilla[f][c].setClickable(false);
+    					Log.d("Prueba", "f "+f+" c "+c);
     			}
     		}
-    		do{
-    		}while(casilla[x-3][y-3].getText()!="A");
-    		cont.setEnabled(true);
-    		cont.setOnClickListener(new OnClickListener() {
-    			public void onClick(View v) {
-    				cont.setEnabled(false);
-    				Intent intent = new Intent(JuegaJugadorActivity.this, JuegaCpuActivity.class);	
-    				startActivity(intent);
-    				finish();
-    			}
-    		});
+    		Intent intent = new Intent(JuegaJugadorActivity.this, JuegaCpuActivity.class);	
+			startActivity(intent);
+			finish();
+    		
     	}else {
     		tocadoOhundido(x,y, texto);
     	}
@@ -326,18 +324,19 @@ public class JuegaJugadorActivity extends Activity {
 		int tocado=0;    	
     	switch (Tablero.tablcpu[x][y][2]) {
     	case 1:
-    		casilla[x-3][y-3].setText("H");
+    		casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
     		hundido(x,y);
     		break;
     	
     	case 2:
     	
     		if ((Tablero.tablcpu[x+1][y][1]==1 && Tablero.tablcpu[x+1][y][0]==1 )||(Tablero.tablcpu[x-1][y][1]==1 && Tablero.tablcpu[x-1][y][0]==1 )||(Tablero.tablcpu[x][y+1][1]==1 && Tablero.tablcpu[x][y+1][0]==1 )||(Tablero.tablcpu[x][y-1][1]==1 && Tablero.tablcpu[x][y-1][0]==1 )){
-    			casilla[x-3][y-3].setText("H");
+    			casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
     			hundido(x,y);
     		} else {
-				texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
-				casilla[x-3][y-3].setText("T");
+//				texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
+    			Toast.makeText(this, "Tocado", Toast.LENGTH_SHORT).show();
+				casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
 			}
     		break;
     	
@@ -356,10 +355,11 @@ public class JuegaJugadorActivity extends Activity {
     			i++;
     		}
     		if (tocado==1){
-    			texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
-    			casilla[x-3][y-3].setText("T");
+//    			texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
+    			Toast.makeText(this, "Tocado", Toast.LENGTH_SHORT).show();
+    			casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
     		}else {
-    			casilla[x-3][y-3].setText("H");
+    			casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
     			hundido(x,y);
 			}
     		break;
@@ -373,7 +373,8 @@ public class JuegaJugadorActivity extends Activity {
     	TextView x3 =(TextView)findViewById(R.id.Barco3);
     	TextView texto = (TextView)findViewById(R.id.estado);
 		//barco1.setText("");
-		texto.setText("Tocado y ¡¡¡HUNDIDO!!!");
+//		texto.setText("Tocado y ¡¡¡HUNDIDO!!!");
+		Toast.makeText(this, "Tocado y Hundido", Toast.LENGTH_SHORT).show();
 		switch (Tablero.tablcpu[x][y][2]) {
 		case 1:
 			String num1=(String)x1.getText();
@@ -398,6 +399,11 @@ public class JuegaJugadorActivity extends Activity {
 	 
 		if(barcos==0){
 			Toast toast =Toast.makeText(getApplicationContext(), "¡HAS GANADO!", Toast.LENGTH_LONG);
+			SharedPreferences prefs =
+				     getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.putBoolean("continuar", false);
+			editor.commit();
 			toast.show();
 			Intent a = new Intent(JuegaJugadorActivity.this, HundirLaFlotaActivity.class);
 			startActivity(a);

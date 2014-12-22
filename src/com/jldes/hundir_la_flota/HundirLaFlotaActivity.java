@@ -24,7 +24,7 @@ public class HundirLaFlotaActivity extends Activity {
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		Button jugar = (Button) findViewById(R.id.jugar);
 		Button ayuda = (Button) findViewById(R.id.ayuda);
-		startService(new Intent(this, Servicio.class));
+//		startService(new Intent(this, Servicio.class));
 		jugar.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(HundirLaFlotaActivity.this,

@@ -5,6 +5,7 @@
     <string name="jugar">JUGAR</string>
     <string name="nueva_partida">NUEVA \nPARTIDA</string>
     <string name="continuar">CONTINUAR \nPARTIDA</string>
+    <string name="deshacer">DESHACER</string>
     <string name="ayuda">AYUDA</string>
     <string name="preferencias">PREFERENCIAS</string>
     <string name="sonido_on">SONIDO ON</string>
@@ -42,7 +43,7 @@
     <string name="F">F</string>
     <string name="TituloJugar">	Elige una posición:</string>
     <string name="posicion">Posición:</string>
-    <string name="TituloCpu">		Turno de la CPU</string>
+    <string name="TurnoCpu">		Turno de la Máquina</string>
     <string name="EleccionCpu">	La CPU ha elegido: </string>
     <string name="TurnoJug">		Turno del Jugador</string>
     

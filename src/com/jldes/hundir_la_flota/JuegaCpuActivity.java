@@ -152,13 +152,13 @@ public class JuegaCpuActivity extends Activity {
 															// texto de los
 															// botones pulsados
 					case 1:
-						casilla[fil - 3][col - 3].setText("A");
+						casilla[fil - 3][col - 3].setBackgroundResource(R.drawable.agua);
 						break;
 					case 2:
-						casilla[fil - 3][col - 3].setText("T");
+						casilla[fil - 3][col - 3].setBackgroundResource(R.drawable.explosion);
 						break;
 					case 3:
-						casilla[fil - 3][col - 3].setText("H");
+						casilla[fil - 3][col - 3].setBackgroundResource(R.drawable.explosion);
 						break;
 					}
 				}
@@ -251,20 +251,20 @@ public class JuegaCpuActivity extends Activity {
 		if (Tablero.tabljug[x][y][0] == 0) { // si es agua
 			texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"Agua ");
 			Tablero.tabljug[x][y][1] = 1; // ha sido llamado y es agua
-			casilla[x - 3][y - 3].setText("A");
+			casilla[x - 3][y - 3].setBackgroundResource(R.drawable.agua);
 			estado = 1; // para saber en continuar que ha sido agua
 			continuar();
 		} else { // si es tocado
 			switch (Tablero.tabljug[x][y][2]) {
 			case 1: // si el barco es de longitud 1
-				casilla[x - 3][y - 3].setText("H");
+				casilla[x - 3][y - 3].setBackgroundResource(R.drawable.explosion);
 				Tablero.tabljug[x][y][1] = 3; // ha sido llamado y es tocado y
 												// hundido
 				Hundido();
 				break;
 
 			default: // el barco es de longitud 2 ó 3
-				casilla[x - 3][y - 3].setText("T");
+				casilla[x - 3][y - 3].setBackgroundResource(R.drawable.explosion);
 				Tablero.tabljug[x][y][1] = 2; // ha sido llamado y es tocado
 				Tocado();
 				break;
@@ -384,14 +384,14 @@ public class JuegaCpuActivity extends Activity {
 			texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"Agua");
 			Tablero.tabljug[x + sigposx][y + sigposy][1] = 1; // ha sido llamado
 																// y es agua
-			casilla[(x + sigposx) - 3][(y + sigposy) - 3].setText("A");
+			casilla[(x + sigposx) - 3][(y + sigposy) - 3].setBackgroundResource(R.drawable.agua);
 			estado = 1;
 			continuar();
 		} else { // tocado
 			switch (Tablero.tabljug[x][y][2]) {
 			case 2: // el barco es de longitud 2
-				casilla[x - 3][y - 3].setText("H");
-				casilla[(x + sigposx) - 3][(y + sigposy) - 3].setText("H");
+				casilla[x - 3][y - 3].setBackgroundResource(R.drawable.explosion);
+				casilla[(x + sigposx) - 3][(y + sigposy) - 3].setBackgroundResource(R.drawable.explosion);
 				Tablero.tabljug[x][y][1] = 3; // ha sido llamado y es hundido
 				Tablero.tabljug[x + sigposx][y + sigposy][1] = 3; // ha sido
 																	// llamado y
@@ -401,7 +401,7 @@ public class JuegaCpuActivity extends Activity {
 				break;
 
 			default: // el barco es de longitud 3
-				casilla[(x + sigposx) - 3][(y + sigposy) - 3].setText("T");
+				casilla[(x + sigposx) - 3][(y + sigposy) - 3].setBackgroundResource(R.drawable.explosion);
 				Tablero.tabljug[x + sigposx][y + sigposy][1] = 2;// ha sido
 																	// llamado y
 																	// es tocado
@@ -488,15 +488,15 @@ public class JuegaCpuActivity extends Activity {
 						 * *ultimapos)+ ".
 						 */"Agua");
 			casilla[(x + sigposx * ultimapos) - 3][(y + sigposy * ultimapos) - 3]
-					.setText("A");
+					.setBackgroundResource(R.drawable.agua);
 			Tablero.tabljug[x + sigposx * ultimapos][y + sigposy * ultimapos][1] = 1;
 			estado = 1;
 			continuar();
 		} else { // es tocado y hundido
-			casilla[x - 3][y - 3].setText("H");
-			casilla[(x + sigposx) - 3][(y + sigposy) - 3].setText("H");
+			casilla[x - 3][y - 3].setBackgroundResource(R.drawable.explosion);
+			casilla[(x + sigposx) - 3][(y + sigposy) - 3].setBackgroundResource(R.drawable.explosion);
 			casilla[(x + sigposx * ultimapos) - 3][(y + sigposy * ultimapos) - 3]
-					.setText("H");
+					.setBackgroundResource(R.drawable.explosion);
 			Tablero.tabljug[x][y][1] = 3;// ha sido llamado y es hundido
 			Tablero.tabljug[x + sigposx][y + sigposy][1] = 3;// ha sido llamado
 																// y es hundido
