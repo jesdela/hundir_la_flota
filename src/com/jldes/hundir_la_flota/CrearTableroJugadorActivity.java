@@ -246,15 +246,13 @@ public class CrearTableroJugadorActivity extends Activity {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						v.setBackgroundResource(R.drawable.radar);
-						Casilla posicion = new Casilla();
-						posicion.barco=numb;
+						Casilla posicion=null; 
 						for (int columna2 = 0; columna2 < 6; columna2++) {
 							for (int fila2 = 0; fila2 < 6; fila2++) {
 								if(casilla[columna2][fila2].equals(v)){
 									Tablero.tabljug[columna2 + 3][fila2 + 3][0] = 1;
 									Tablero.tabljug[columna2 + 3][fila2 + 3][2] = numb;
-									posicion.x=columna2;
-									posicion.y=fila2;
+									posicion = new Casilla(columna2, fila2);
 								}
 							}
 						}
