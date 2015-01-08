@@ -1,4 +1,4 @@
-package com.jldes.hundir_la_flota;
+package com.jldes.hundir_la_flota2;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CrearTableroJugadorActivity extends Activity {
+public class CopyOfCrearTableroJugadorActivity extends Activity {
 	static int i;
 	Button casilla[][] = new Button[6][6];
 	ArrayList<Casilla> arrayList = new ArrayList<Casilla>();
@@ -161,7 +161,7 @@ public class CrearTableroJugadorActivity extends Activity {
 				editor.putBoolean("continuar", true);
 				editor.commit();
 				toast.show();
-				Intent b = new Intent(CrearTableroJugadorActivity.this,
+				Intent b = new Intent(CopyOfCrearTableroJugadorActivity.this,
 						JuegaJugadorActivity.class);
 				startActivity(b);
 				finish();
@@ -422,7 +422,7 @@ public class CrearTableroJugadorActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.nueva_partida:
-			startActivity(new Intent(this, CrearTableroJugadorActivity.class));
+			startActivity(new Intent(this, CopyOfCrearTableroJugadorActivity.class));
 			finish();
 			return true;
 

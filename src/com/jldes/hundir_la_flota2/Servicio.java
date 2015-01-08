@@ -1,10 +1,11 @@
-package com.jldes.hundir_la_flota;
+package com.jldes.hundir_la_flota2;
 
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
-import com.jldes.hundir_la_flota.R;
+
+import com.jldes.hundir_la_flota2.R;
 
 public class Servicio extends Service {
 	 

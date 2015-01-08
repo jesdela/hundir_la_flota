@@ -1,4 +1,4 @@
-package com.jldes.hundir_la_flota;
+package com.jldes.hundir_la_flota2;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,7 +11,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import com.jldes.hundir_la_flota.R;
+
+import com.jldes.hundir_la_flota2.R;
 
 public class HundirLaFlotaActivity extends Activity {
 	final static int ACTIVITY_PREFERENCES = 1;

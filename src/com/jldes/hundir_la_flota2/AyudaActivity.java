@@ -1,10 +1,11 @@
-package com.jldes.hundir_la_flota;
+package com.jldes.hundir_la_flota2;
 
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TabHost;
-import com.jldes.hundir_la_flota.R;
+
+import com.jldes.hundir_la_flota2.R;
 
 public class AyudaActivity extends Activity {
 

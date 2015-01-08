@@ -1,10 +1,11 @@
-package com.jldes.hundir_la_flota;
+package com.jldes.hundir_la_flota2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,7 +21,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.jldes.hundir_la_flota.R;
+
+import com.jldes.hundir_la_flota2.R;
 
 public class JuegaCpuActivity extends Activity {
 	int x, y, sigposx, sigposy, ultimapos, numbarcosjug, estado;
