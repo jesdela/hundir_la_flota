@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, HundirLaFlotaActivity!</string>
-    <string name="app_name">HundirLaFlota</string>
+    <string name="app_name">Hundir La Flota</string>
     <string name="jugar">JUGAR</string>
     <string name="nueva_partida">NUEVA \nPARTIDA</string>
     <string name="continuar">CONTINUAR \nPARTIDA</string>
+    <string name="comenzar">COMENZAR</string>
     <string name="deshacer">DESHACER</string>
     <string name="ayuda">AYUDA</string>
     <string name="preferencias">PREFERENCIAS</string>

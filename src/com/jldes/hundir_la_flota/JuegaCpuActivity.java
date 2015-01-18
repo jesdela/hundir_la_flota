@@ -5,11 +5,14 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -20,6 +23,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.jldes.hundir_la_flota.R;
 
 public class JuegaCpuActivity extends Activity {
@@ -249,6 +253,8 @@ public class JuegaCpuActivity extends Activity {
 								// y saber que estabamos en el procedimiento
 								// jugar
 		if (Tablero.tabljug[x][y][0] == 0) { // si es agua
+			stopService(new Intent(this, Servicio.class));
+			startService(new Intent(this, Servicio2.class));
 			texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"Agua ");
 			Tablero.tabljug[x][y][1] = 1; // ha sido llamado y es agua
 			casilla[x - 3][y - 3].setBackgroundResource(R.drawable.agua);
@@ -273,8 +279,10 @@ public class JuegaCpuActivity extends Activity {
 	}
 
 	public void Hundido() {
+		stopService(new Intent(this, Servicio.class));
+		startService(new Intent(this, Servicio.class));
 		final TextView texto = (TextView) findViewById(R.id.estado2);
-		texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"Tocado y Â¡Â¡Â¡HUNDIDO!!!");
+		texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"Tocado y ¡¡¡HUNDIDO!!!");
 		numbarcosjug--;
 		switch (Tablero.tabljug[x][y][2]) {
 		case 1:
@@ -301,8 +309,10 @@ public class JuegaCpuActivity extends Activity {
 	}
 
 	public void Tocado() {
+		stopService(new Intent(this, Servicio.class));
+		startService(new Intent(this, Servicio.class));
 		final TextView texto = (TextView) findViewById(R.id.estado2);
-		texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"Â¡Tocado!");
+		texto.setText(/* "La CPU ha elegido: "+x+y+ ". */"¡Tocado!");
 		estado = 2; // para saber en continuar que ha sido tocado
 		continuar();
 		return;
@@ -541,12 +551,29 @@ public class JuegaCpuActivity extends Activity {
 				case 3: // ha sido hundido
 					if (numbarcosjug == 0) {
 						Toast toast = Toast.makeText(getApplicationContext(),
-								"Â¡HAS PERDIDO!", Toast.LENGTH_LONG);
+								"¡HAS PERDIDO!", Toast.LENGTH_LONG);
 						toast.show();
-						Intent irahundir = new Intent(JuegaCpuActivity.this,
+						SharedPreferences prefs = getSharedPreferences("MisPreferencias",
+								Context.MODE_PRIVATE);
+						SharedPreferences.Editor editor = prefs.edit();
+						editor.putBoolean("continuar", false);
+						editor.commit();
+						toast.show();
+						final Intent irahundir = new Intent(JuegaCpuActivity.this,
 								HundirLaFlotaActivity.class);
-						startActivity(irahundir);
-						finish();
+						Thread timer = new Thread() {
+							public void run() {
+								try {
+									sleep(1500);
+									startActivity(irahundir);
+									finish();
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+
+							}
+						};
+						timer.start();
 					} else {
 						Jugar();
 					}
@@ -646,9 +673,9 @@ public class JuegaCpuActivity extends Activity {
 		switch (id) {
 		case 0:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Â¿EstÃ¡ seguro que quiere salir?")
+			builder.setMessage("¿Está seguro que quiere salir?")
 					.setCancelable(false)
-					.setPositiveButton("SÃ­",
+					.setPositiveButton("Sí",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int id) {

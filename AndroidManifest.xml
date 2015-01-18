@@ -7,7 +7,7 @@
     <uses-sdk android:minSdkVersion="16" />
 
     <application
-        android:icon="@drawable/photoship1"
+        android:icon="@drawable/ic_launcher_radar"
         android:label="@string/app_name" 
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <activity
@@ -45,6 +45,10 @@
 
         <service
             android:name="com.jldes.hundir_la_flota.Servicio"
+            android:enabled="true" >
+        </service>
+        <service
+            android:name="com.jldes.hundir_la_flota.Servicio2"
             android:enabled="true" >
         </service>
     </application>

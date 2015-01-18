@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/photoship"
@@ -7,36 +8,35 @@
     android:weightSum="2" >
 
     <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" >
 
         <Button
-            android:id="@+id/jugar"
-            style="@android:style/Widget.ListPopupWindow"
+            android:id="@+id/nueva_partida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="@string/jugar" />
-
+            android:padding="24dp"
+            android:text="@string/nueva_partida"
+            android:textSize="48sp" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" >
 
         <Button
-            android:id="@+id/ayuda"
-            style="@android:style/Widget.ListPopupWindow"
+            android:id="@+id/continuar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="@string/ayuda" />
-
+            android:padding="24dp"
+            android:text="@string/continuar"
+            android:textSize="48sp" />
     </RelativeLayout>
 
 </LinearLayout>

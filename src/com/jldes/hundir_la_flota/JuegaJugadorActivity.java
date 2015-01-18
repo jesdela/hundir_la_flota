@@ -25,112 +25,122 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class JuegaJugadorActivity extends Activity {
-	int barcos;	
-    @Override
-    protected void onResume() {
-    	super.onResume();
-    	final Button casilla[][] = new Button[6][6]; //
-		casilla[0][0]=(Button)findViewById(R.id.ButtonA1);
-		casilla[0][1]=(Button)findViewById(R.id.ButtonB1);
-		casilla[0][2]=(Button)findViewById(R.id.ButtonC1);
-		casilla[0][3]=(Button)findViewById(R.id.ButtonD1);
-		casilla[0][4]=(Button)findViewById(R.id.ButtonE1);
-		casilla[0][5]=(Button)findViewById(R.id.ButtonF1);
-		casilla[1][0]=(Button)findViewById(R.id.ButtonA2);
-		casilla[1][1]=(Button)findViewById(R.id.ButtonB2);
-		casilla[1][2]=(Button)findViewById(R.id.ButtonC2);
-		casilla[1][3]=(Button)findViewById(R.id.ButtonD2);
-		casilla[1][4]=(Button)findViewById(R.id.ButtonE2);
-		casilla[1][5]=(Button)findViewById(R.id.ButtonF2);
-		casilla[2][0]=(Button)findViewById(R.id.ButtonA3);
-		casilla[2][1]=(Button)findViewById(R.id.ButtonB3);
-		casilla[2][2]=(Button)findViewById(R.id.ButtonC3);
-		casilla[2][3]=(Button)findViewById(R.id.ButtonD3);
-		casilla[2][4]=(Button)findViewById(R.id.ButtonE3);
-		casilla[2][5]=(Button)findViewById(R.id.ButtonF3);
-		casilla[3][0]=(Button)findViewById(R.id.ButtonA4);		
-		casilla[3][1]=(Button)findViewById(R.id.ButtonB4);
-		casilla[3][2]=(Button)findViewById(R.id.ButtonC4);
-		casilla[3][3]=(Button)findViewById(R.id.ButtonD4);
-		casilla[3][4]=(Button)findViewById(R.id.ButtonE4);
-		casilla[3][5]=(Button)findViewById(R.id.ButtonF4);
-		casilla[4][0]=(Button)findViewById(R.id.ButtonA5);
-		casilla[4][1]=(Button)findViewById(R.id.ButtonB5);
-		casilla[4][2]=(Button)findViewById(R.id.ButtonC5);
-		casilla[4][3]=(Button)findViewById(R.id.ButtonD5);
-		casilla[4][4]=(Button)findViewById(R.id.ButtonE5);
-		casilla[4][5]=(Button)findViewById(R.id.ButtonF5);
-		casilla[5][0]=(Button)findViewById(R.id.ButtonA6);
-		casilla[5][1]=(Button)findViewById(R.id.ButtonB6);
-		casilla[5][2]=(Button)findViewById(R.id.ButtonC6);
-		casilla[5][3]=(Button)findViewById(R.id.ButtonD6);
-		casilla[5][4]=(Button)findViewById(R.id.ButtonE6);
-		casilla[5][5]=(Button)findViewById(R.id.ButtonF6);
-    	int fil,col;
-    	TextView x1 =(TextView)findViewById(R.id.Barco1);
-    	TextView x2 =(TextView)findViewById(R.id.Barco2);
-    	TextView x3 =(TextView)findViewById(R.id.Barco3);
-    	BufferedReader fichero;
-    	String linea;
-    	int numero,a,b,c;
-    	try {
-    		fichero = new BufferedReader(new FileReader(
-    				getFilesDir()+"/tablcpu.txt"));
-    		for(fil=3;fil<9;fil++){
-    			for(col=3;col<9;col++){
-    				linea = fichero.readLine();
-    				numero=Integer.parseInt(linea);
-    				a= numero/100;
-    				b= (numero-100*a)/10;
-    				c= (numero-a*100-b*10);
-    	    		Tablero.tablcpu[fil][col][0]=a;
-    	    		Tablero.tablcpu[fil][col][1]=b;
-    	    		Tablero.tablcpu[fil][col][2]=c;
-        		}
-    		}
-    		Log.d("Pruebas", "Entro");
-    		barcos=Integer.parseInt(fichero.readLine());
-    		x1.setText(fichero.readLine());
-    		x2.setText(fichero.readLine());
-    		x3.setText(fichero.readLine());
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    	for(fil=3;fil<9;fil++){
-			for(col=3;col<9;col++){
-				if(Tablero.tablcpu[fil][col][1]==1){
-					casilla[fil-3][col-3].setEnabled(false);
+	int barcos;
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		final Button casilla[][] = new Button[6][6]; //
+		casilla[0][0] = (Button) findViewById(R.id.ButtonA1);
+		casilla[0][1] = (Button) findViewById(R.id.ButtonB1);
+		casilla[0][2] = (Button) findViewById(R.id.ButtonC1);
+		casilla[0][3] = (Button) findViewById(R.id.ButtonD1);
+		casilla[0][4] = (Button) findViewById(R.id.ButtonE1);
+		casilla[0][5] = (Button) findViewById(R.id.ButtonF1);
+		casilla[1][0] = (Button) findViewById(R.id.ButtonA2);
+		casilla[1][1] = (Button) findViewById(R.id.ButtonB2);
+		casilla[1][2] = (Button) findViewById(R.id.ButtonC2);
+		casilla[1][3] = (Button) findViewById(R.id.ButtonD2);
+		casilla[1][4] = (Button) findViewById(R.id.ButtonE2);
+		casilla[1][5] = (Button) findViewById(R.id.ButtonF2);
+		casilla[2][0] = (Button) findViewById(R.id.ButtonA3);
+		casilla[2][1] = (Button) findViewById(R.id.ButtonB3);
+		casilla[2][2] = (Button) findViewById(R.id.ButtonC3);
+		casilla[2][3] = (Button) findViewById(R.id.ButtonD3);
+		casilla[2][4] = (Button) findViewById(R.id.ButtonE3);
+		casilla[2][5] = (Button) findViewById(R.id.ButtonF3);
+		casilla[3][0] = (Button) findViewById(R.id.ButtonA4);
+		casilla[3][1] = (Button) findViewById(R.id.ButtonB4);
+		casilla[3][2] = (Button) findViewById(R.id.ButtonC4);
+		casilla[3][3] = (Button) findViewById(R.id.ButtonD4);
+		casilla[3][4] = (Button) findViewById(R.id.ButtonE4);
+		casilla[3][5] = (Button) findViewById(R.id.ButtonF4);
+		casilla[4][0] = (Button) findViewById(R.id.ButtonA5);
+		casilla[4][1] = (Button) findViewById(R.id.ButtonB5);
+		casilla[4][2] = (Button) findViewById(R.id.ButtonC5);
+		casilla[4][3] = (Button) findViewById(R.id.ButtonD5);
+		casilla[4][4] = (Button) findViewById(R.id.ButtonE5);
+		casilla[4][5] = (Button) findViewById(R.id.ButtonF5);
+		casilla[5][0] = (Button) findViewById(R.id.ButtonA6);
+		casilla[5][1] = (Button) findViewById(R.id.ButtonB6);
+		casilla[5][2] = (Button) findViewById(R.id.ButtonC6);
+		casilla[5][3] = (Button) findViewById(R.id.ButtonD6);
+		casilla[5][4] = (Button) findViewById(R.id.ButtonE6);
+		casilla[5][5] = (Button) findViewById(R.id.ButtonF6);
+		int fil, col;
+		TextView x1 = (TextView) findViewById(R.id.Barco1);
+		TextView x2 = (TextView) findViewById(R.id.Barco2);
+		TextView x3 = (TextView) findViewById(R.id.Barco3);
+		BufferedReader fichero;
+		String linea;
+		int numero, a, b, c;
+		try {
+			fichero = new BufferedReader(new FileReader(getFilesDir()
+					+ "/tablcpu.txt"));
+			for (fil = 3; fil < 9; fil++) {
+				for (col = 3; col < 9; col++) {
+					linea = fichero.readLine();
+					numero = Integer.parseInt(linea);
+					a = numero / 100;
+					b = (numero - 100 * a) / 10;
+					c = (numero - a * 100 - b * 10);
+					Tablero.tablcpu[fil][col][0] = a;
+					Tablero.tablcpu[fil][col][1] = b;
+					Tablero.tablcpu[fil][col][2] = c;
+				}
+			}
+			Log.d("Pruebas", "Entro");
+			barcos = Integer.parseInt(fichero.readLine());
+			x1.setText(fichero.readLine());
+			x2.setText(fichero.readLine());
+			x3.setText(fichero.readLine());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		for (fil = 3; fil < 9; fil++) {
+			for (col = 3; col < 9; col++) {
+				if (Tablero.tablcpu[fil][col][1] == 1) {
+					casilla[fil - 3][col - 3].setEnabled(false);
 					switch (Tablero.tablcpu[fil][col][0]) {
 					case 0:
-						casilla[fil-3][col-3].setBackgroundResource(R.drawable.agua);;
+						casilla[fil - 3][col - 3]
+								.setBackgroundResource(R.drawable.agua);
+						;
 						break;
 					default:
 						switch (Tablero.tablcpu[fil][col][2]) {
 						case 1:
-							casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
+							casilla[fil - 3][col - 3]
+									.setBackgroundResource(R.drawable.explosion);
 							break;
 						case 2:
-							if ((Tablero.tablcpu[fil+1][col][1]==1&&Tablero.tablcpu[fil+1][col][2]==2)||
-									(Tablero.tablcpu[fil-1][col][1]==1&&Tablero.tablcpu[fil-1][col][2]==2)||
-									(Tablero.tablcpu[fil][col+1][1]==1&&Tablero.tablcpu[fil][col+1][2]==2)||
-									(Tablero.tablcpu[fil][col-1][1]==1&&Tablero.tablcpu[fil][col-1][2]==2)) {
-								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
+							if ((Tablero.tablcpu[fil + 1][col][1] == 1 && Tablero.tablcpu[fil + 1][col][2] == 2)
+									|| (Tablero.tablcpu[fil - 1][col][1] == 1 && Tablero.tablcpu[fil - 1][col][2] == 2)
+									|| (Tablero.tablcpu[fil][col + 1][1] == 1 && Tablero.tablcpu[fil][col + 1][2] == 2)
+									|| (Tablero.tablcpu[fil][col - 1][1] == 1 && Tablero.tablcpu[fil][col - 1][2] == 2)) {
+								casilla[fil - 3][col - 3]
+										.setBackgroundResource(R.drawable.explosion);
 							} else {
-								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
+								casilla[fil - 3][col - 3]
+										.setBackgroundResource(R.drawable.explosion);
 							}
 							break;
 						case 3:
-							if (((Tablero.tablcpu[fil+1][col][1]==1&&Tablero.tablcpu[fil-1][col][1]==1)&&
-										(Tablero.tablcpu[fil+1][col][2]==3||Tablero.tablcpu[fil-1][col][2]==3))
-									||(Tablero.tablcpu[fil+1][col][1]==1&&Tablero.tablcpu[fil+2][col][1]==1&&Tablero.tablcpu[fil+2][col][2]==3)
-									||(Tablero.tablcpu[fil-1][col][1]==1&&Tablero.tablcpu[fil-2][col][1]==1&&Tablero.tablcpu[fil-2][col][2]==3)
-									||((Tablero.tablcpu[fil][col+1][1]==1&&Tablero.tablcpu[fil][col-1][1]==1)&&
-										(Tablero.tablcpu[fil][col+1][2]==3||Tablero.tablcpu[fil][col-1][2]==3))
-									||(Tablero.tablcpu[fil][col+1][1]==1&&Tablero.tablcpu[fil][col+2][1]==1&&Tablero.tablcpu[fil][col+2][2]==3)
-									||(Tablero.tablcpu[fil][col-1][1]==1&&Tablero.tablcpu[fil][col-2][1]==1&&Tablero.tablcpu[fil][col-2][2]==3)) {
-								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);	
+							if (((Tablero.tablcpu[fil + 1][col][1] == 1 && Tablero.tablcpu[fil - 1][col][1] == 1) && (Tablero.tablcpu[fil + 1][col][2] == 3 || Tablero.tablcpu[fil - 1][col][2] == 3))
+									|| (Tablero.tablcpu[fil + 1][col][1] == 1
+											&& Tablero.tablcpu[fil + 2][col][1] == 1 && Tablero.tablcpu[fil + 2][col][2] == 3)
+									|| (Tablero.tablcpu[fil - 1][col][1] == 1
+											&& Tablero.tablcpu[fil - 2][col][1] == 1 && Tablero.tablcpu[fil - 2][col][2] == 3)
+									|| ((Tablero.tablcpu[fil][col + 1][1] == 1 && Tablero.tablcpu[fil][col - 1][1] == 1) && (Tablero.tablcpu[fil][col + 1][2] == 3 || Tablero.tablcpu[fil][col - 1][2] == 3))
+									|| (Tablero.tablcpu[fil][col + 1][1] == 1
+											&& Tablero.tablcpu[fil][col + 2][1] == 1 && Tablero.tablcpu[fil][col + 2][2] == 3)
+									|| (Tablero.tablcpu[fil][col - 1][1] == 1
+											&& Tablero.tablcpu[fil][col - 2][1] == 1 && Tablero.tablcpu[fil][col - 2][2] == 3)) {
+								casilla[fil - 3][col - 3]
+										.setBackgroundResource(R.drawable.explosion);
 							} else {
-								casilla[fil-3][col-3].setBackgroundResource(R.drawable.explosion);
+								casilla[fil - 3][col - 3]
+										.setBackgroundResource(R.drawable.explosion);
 							}
 							break;
 						}
@@ -138,373 +148,413 @@ public class JuegaJugadorActivity extends Activity {
 					}
 				}
 			}
-    	}
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.jugar_partida);
-        barcos=6;
-        final Button casilla[][] = new Button[6][6];
-		casilla[0][0]=(Button)findViewById(R.id.ButtonA1);
-		casilla[0][1]=(Button)findViewById(R.id.ButtonB1);
-		casilla[0][2]=(Button)findViewById(R.id.ButtonC1);
-		casilla[0][3]=(Button)findViewById(R.id.ButtonD1);
-		casilla[0][4]=(Button)findViewById(R.id.ButtonE1);
-		casilla[0][5]=(Button)findViewById(R.id.ButtonF1);
-		casilla[1][0]=(Button)findViewById(R.id.ButtonA2);
-		casilla[1][1]=(Button)findViewById(R.id.ButtonB2);
-		casilla[1][2]=(Button)findViewById(R.id.ButtonC2);
-		casilla[1][3]=(Button)findViewById(R.id.ButtonD2);
-		casilla[1][4]=(Button)findViewById(R.id.ButtonE2);
-		casilla[1][5]=(Button)findViewById(R.id.ButtonF2);
-		casilla[2][0]=(Button)findViewById(R.id.ButtonA3);
-		casilla[2][1]=(Button)findViewById(R.id.ButtonB3);
-		casilla[2][2]=(Button)findViewById(R.id.ButtonC3);
-		casilla[2][3]=(Button)findViewById(R.id.ButtonD3);
-		casilla[2][4]=(Button)findViewById(R.id.ButtonE3);
-		casilla[2][5]=(Button)findViewById(R.id.ButtonF3);
-		casilla[3][0]=(Button)findViewById(R.id.ButtonA4);		
-		casilla[3][1]=(Button)findViewById(R.id.ButtonB4);
-		casilla[3][2]=(Button)findViewById(R.id.ButtonC4);
-		casilla[3][3]=(Button)findViewById(R.id.ButtonD4);
-		casilla[3][4]=(Button)findViewById(R.id.ButtonE4);
-		casilla[3][5]=(Button)findViewById(R.id.ButtonF4);
-		casilla[4][0]=(Button)findViewById(R.id.ButtonA5);
-		casilla[4][1]=(Button)findViewById(R.id.ButtonB5);
-		casilla[4][2]=(Button)findViewById(R.id.ButtonC5);
-		casilla[4][3]=(Button)findViewById(R.id.ButtonD5);
-		casilla[4][4]=(Button)findViewById(R.id.ButtonE5);
-		casilla[4][5]=(Button)findViewById(R.id.ButtonF5);
-		casilla[5][0]=(Button)findViewById(R.id.ButtonA6);
-		casilla[5][1]=(Button)findViewById(R.id.ButtonB6);
-		casilla[5][2]=(Button)findViewById(R.id.ButtonC6);
-		casilla[5][3]=(Button)findViewById(R.id.ButtonD6);
-		casilla[5][4]=(Button)findViewById(R.id.ButtonE6);
-		casilla[5][5]=(Button)findViewById(R.id.ButtonF6);
+		}
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.jugar_partida);
+		barcos = 6;
+		final Button casilla[][] = new Button[6][6];
+		casilla[0][0] = (Button) findViewById(R.id.ButtonA1);
+		casilla[0][1] = (Button) findViewById(R.id.ButtonB1);
+		casilla[0][2] = (Button) findViewById(R.id.ButtonC1);
+		casilla[0][3] = (Button) findViewById(R.id.ButtonD1);
+		casilla[0][4] = (Button) findViewById(R.id.ButtonE1);
+		casilla[0][5] = (Button) findViewById(R.id.ButtonF1);
+		casilla[1][0] = (Button) findViewById(R.id.ButtonA2);
+		casilla[1][1] = (Button) findViewById(R.id.ButtonB2);
+		casilla[1][2] = (Button) findViewById(R.id.ButtonC2);
+		casilla[1][3] = (Button) findViewById(R.id.ButtonD2);
+		casilla[1][4] = (Button) findViewById(R.id.ButtonE2);
+		casilla[1][5] = (Button) findViewById(R.id.ButtonF2);
+		casilla[2][0] = (Button) findViewById(R.id.ButtonA3);
+		casilla[2][1] = (Button) findViewById(R.id.ButtonB3);
+		casilla[2][2] = (Button) findViewById(R.id.ButtonC3);
+		casilla[2][3] = (Button) findViewById(R.id.ButtonD3);
+		casilla[2][4] = (Button) findViewById(R.id.ButtonE3);
+		casilla[2][5] = (Button) findViewById(R.id.ButtonF3);
+		casilla[3][0] = (Button) findViewById(R.id.ButtonA4);
+		casilla[3][1] = (Button) findViewById(R.id.ButtonB4);
+		casilla[3][2] = (Button) findViewById(R.id.ButtonC4);
+		casilla[3][3] = (Button) findViewById(R.id.ButtonD4);
+		casilla[3][4] = (Button) findViewById(R.id.ButtonE4);
+		casilla[3][5] = (Button) findViewById(R.id.ButtonF4);
+		casilla[4][0] = (Button) findViewById(R.id.ButtonA5);
+		casilla[4][1] = (Button) findViewById(R.id.ButtonB5);
+		casilla[4][2] = (Button) findViewById(R.id.ButtonC5);
+		casilla[4][3] = (Button) findViewById(R.id.ButtonD5);
+		casilla[4][4] = (Button) findViewById(R.id.ButtonE5);
+		casilla[4][5] = (Button) findViewById(R.id.ButtonF5);
+		casilla[5][0] = (Button) findViewById(R.id.ButtonA6);
+		casilla[5][1] = (Button) findViewById(R.id.ButtonB6);
+		casilla[5][2] = (Button) findViewById(R.id.ButtonC6);
+		casilla[5][3] = (Button) findViewById(R.id.ButtonD6);
+		casilla[5][4] = (Button) findViewById(R.id.ButtonE6);
+		casilla[5][5] = (Button) findViewById(R.id.ButtonF6);
 		int fil;
 		int col;
 		BufferedWriter fichturno;
 		try {
-		fichturno = new BufferedWriter(new FileWriter(
-		getFilesDir()+"/turno.txt"));
-		fichturno.write("0");
-		fichturno.close();
+			fichturno = new BufferedWriter(new FileWriter(getFilesDir()
+					+ "/turno.txt"));
+			fichturno.write("0");
+			fichturno.close();
 		} catch (Exception e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
-		for (fil=0;fil<6;fil++)
-		{
-			for (col=0;col<6;col++)
-			{
-				final int fil2=fil+3;
-				final int col2=col+3;
+		for (fil = 0; fil < 6; fil++) {
+			for (col = 0; col < 6; col++) {
+				final int fil2 = fil + 3;
+				final int col2 = col + 3;
 
 				casilla[fil][col].setOnClickListener(new OnClickListener() {
-					
+
 					public void onClick(View v) {
-						Log.d("Prueba", "fial: "+fil2+" col "+col2);
-						Tablero.tablcpu[fil2][col2][1]=1;
-						comprobar(fil2,col2);
-						casilla[fil2-3][col2-3].setEnabled(false);
+						Log.d("Prueba", "fial: " + fil2 + " col " + col2);
+						Tablero.tablcpu[fil2][col2][1] = 1;
+						comprobar(fil2, col2);
+						casilla[fil2 - 3][col2 - 3].setEnabled(false);
 					}
 				});
 			}
 		}
-		
-    
-    }
-    
-    
 
+	}
 
+	public void comprobar(final int x, final int y) {
+		final TextView texto = (TextView) findViewById(R.id.estado);
+		final Button casilla[][] = new Button[6][6];
+		casilla[0][0] = (Button) findViewById(R.id.ButtonA1);
+		casilla[0][1] = (Button) findViewById(R.id.ButtonB1);
+		casilla[0][2] = (Button) findViewById(R.id.ButtonC1);
+		casilla[0][3] = (Button) findViewById(R.id.ButtonD1);
+		casilla[0][4] = (Button) findViewById(R.id.ButtonE1);
+		casilla[0][5] = (Button) findViewById(R.id.ButtonF1);
+		casilla[1][0] = (Button) findViewById(R.id.ButtonA2);
+		casilla[1][1] = (Button) findViewById(R.id.ButtonB2);
+		casilla[1][2] = (Button) findViewById(R.id.ButtonC2);
+		casilla[1][3] = (Button) findViewById(R.id.ButtonD2);
+		casilla[1][4] = (Button) findViewById(R.id.ButtonE2);
+		casilla[1][5] = (Button) findViewById(R.id.ButtonF2);
+		casilla[2][0] = (Button) findViewById(R.id.ButtonA3);
+		casilla[2][1] = (Button) findViewById(R.id.ButtonB3);
+		casilla[2][2] = (Button) findViewById(R.id.ButtonC3);
+		casilla[2][3] = (Button) findViewById(R.id.ButtonD3);
+		casilla[2][4] = (Button) findViewById(R.id.ButtonE3);
+		casilla[2][5] = (Button) findViewById(R.id.ButtonF3);
+		casilla[3][0] = (Button) findViewById(R.id.ButtonA4);
+		casilla[3][1] = (Button) findViewById(R.id.ButtonB4);
+		casilla[3][2] = (Button) findViewById(R.id.ButtonC4);
+		casilla[3][3] = (Button) findViewById(R.id.ButtonD4);
+		casilla[3][4] = (Button) findViewById(R.id.ButtonE4);
+		casilla[3][5] = (Button) findViewById(R.id.ButtonF4);
+		casilla[4][0] = (Button) findViewById(R.id.ButtonA5);
+		casilla[4][1] = (Button) findViewById(R.id.ButtonB5);
+		casilla[4][2] = (Button) findViewById(R.id.ButtonC5);
+		casilla[4][3] = (Button) findViewById(R.id.ButtonD5);
+		casilla[4][4] = (Button) findViewById(R.id.ButtonE5);
+		casilla[4][5] = (Button) findViewById(R.id.ButtonF5);
+		casilla[5][0] = (Button) findViewById(R.id.ButtonA6);
+		casilla[5][1] = (Button) findViewById(R.id.ButtonB6);
+		casilla[5][2] = (Button) findViewById(R.id.ButtonC6);
+		casilla[5][3] = (Button) findViewById(R.id.ButtonD6);
+		casilla[5][4] = (Button) findViewById(R.id.ButtonE6);
+		casilla[5][5] = (Button) findViewById(R.id.ButtonF6);
+		Log.d("Prueba", "x " + x + " y " + y + "= " + Tablero.tablcpu[x][y][0]);
+		Tablero.tablcpu[x][y][1] = 1;
+		if (Tablero.tablcpu[x][y][0] == 0) {
 
-    
-    public void comprobar(final int x,final int y){
-    	final TextView texto = (TextView)findViewById(R.id.estado);
-    	final Button casilla[][] = new Button[6][6];
-		casilla[0][0]=(Button)findViewById(R.id.ButtonA1);
-		casilla[0][1]=(Button)findViewById(R.id.ButtonB1);
-		casilla[0][2]=(Button)findViewById(R.id.ButtonC1);
-		casilla[0][3]=(Button)findViewById(R.id.ButtonD1);
-		casilla[0][4]=(Button)findViewById(R.id.ButtonE1);
-		casilla[0][5]=(Button)findViewById(R.id.ButtonF1);
-		casilla[1][0]=(Button)findViewById(R.id.ButtonA2);
-		casilla[1][1]=(Button)findViewById(R.id.ButtonB2);
-		casilla[1][2]=(Button)findViewById(R.id.ButtonC2);
-		casilla[1][3]=(Button)findViewById(R.id.ButtonD2);
-		casilla[1][4]=(Button)findViewById(R.id.ButtonE2);
-		casilla[1][5]=(Button)findViewById(R.id.ButtonF2);
-		casilla[2][0]=(Button)findViewById(R.id.ButtonA3);
-		casilla[2][1]=(Button)findViewById(R.id.ButtonB3);
-		casilla[2][2]=(Button)findViewById(R.id.ButtonC3);
-		casilla[2][3]=(Button)findViewById(R.id.ButtonD3);
-		casilla[2][4]=(Button)findViewById(R.id.ButtonE3);
-		casilla[2][5]=(Button)findViewById(R.id.ButtonF3);
-		casilla[3][0]=(Button)findViewById(R.id.ButtonA4);		
-		casilla[3][1]=(Button)findViewById(R.id.ButtonB4);
-		casilla[3][2]=(Button)findViewById(R.id.ButtonC4);
-		casilla[3][3]=(Button)findViewById(R.id.ButtonD4);
-		casilla[3][4]=(Button)findViewById(R.id.ButtonE4);
-		casilla[3][5]=(Button)findViewById(R.id.ButtonF4);
-		casilla[4][0]=(Button)findViewById(R.id.ButtonA5);
-		casilla[4][1]=(Button)findViewById(R.id.ButtonB5);
-		casilla[4][2]=(Button)findViewById(R.id.ButtonC5);
-		casilla[4][3]=(Button)findViewById(R.id.ButtonD5);
-		casilla[4][4]=(Button)findViewById(R.id.ButtonE5);
-		casilla[4][5]=(Button)findViewById(R.id.ButtonF5);
-		casilla[5][0]=(Button)findViewById(R.id.ButtonA6);
-		casilla[5][1]=(Button)findViewById(R.id.ButtonB6);
-		casilla[5][2]=(Button)findViewById(R.id.ButtonC6);
-		casilla[5][3]=(Button)findViewById(R.id.ButtonD6);
-		casilla[5][4]=(Button)findViewById(R.id.ButtonE6);
-		casilla[5][5]=(Button)findViewById(R.id.ButtonF6);
-    	Log.d("Prueba", "x "+x+" y "+y+"= "+Tablero.tablcpu[x][y][0]);
-    	Tablero.tablcpu[x][y][1]=1;
-    	if (Tablero.tablcpu[x][y][0]==0){
-    		   		
-//    		texto.setText("Agua");
-    		Toast.makeText(this, "Agua", Toast.LENGTH_SHORT).show();
-    		casilla[x-3][y-3].setBackgroundResource(R.drawable.agua);
-    		for (int f=0;f<6;f++)
-    		{
-    			for (int c=0;c<6;c++)
-    			{	
-    					casilla[f][c].setClickable(false);
-    					Log.d("Prueba", "f "+f+" c "+c);
-    			}
-    		}
-    		Intent intent = new Intent(JuegaJugadorActivity.this, JuegaCpuActivity.class);	
-			startActivity(intent);
-			finish();
-    		
-    	}else {
-    		tocadoOhundido(x,y, texto);
-    	}
-    }    
-    public void tocadoOhundido(int x,int y, TextView texto){
-    	final Button casilla[][] = new Button[6][6];
-		casilla[0][0]=(Button)findViewById(R.id.ButtonA1);
-		casilla[0][1]=(Button)findViewById(R.id.ButtonB1);
-		casilla[0][2]=(Button)findViewById(R.id.ButtonC1);
-		casilla[0][3]=(Button)findViewById(R.id.ButtonD1);
-		casilla[0][4]=(Button)findViewById(R.id.ButtonE1);
-		casilla[0][5]=(Button)findViewById(R.id.ButtonF1);
-		casilla[1][0]=(Button)findViewById(R.id.ButtonA2);
-		casilla[1][1]=(Button)findViewById(R.id.ButtonB2);
-		casilla[1][2]=(Button)findViewById(R.id.ButtonC2);
-		casilla[1][3]=(Button)findViewById(R.id.ButtonD2);
-		casilla[1][4]=(Button)findViewById(R.id.ButtonE2);
-		casilla[1][5]=(Button)findViewById(R.id.ButtonF2);
-		casilla[2][0]=(Button)findViewById(R.id.ButtonA3);
-		casilla[2][1]=(Button)findViewById(R.id.ButtonB3);
-		casilla[2][2]=(Button)findViewById(R.id.ButtonC3);
-		casilla[2][3]=(Button)findViewById(R.id.ButtonD3);
-		casilla[2][4]=(Button)findViewById(R.id.ButtonE3);
-		casilla[2][5]=(Button)findViewById(R.id.ButtonF3);
-		casilla[3][0]=(Button)findViewById(R.id.ButtonA4);		
-		casilla[3][1]=(Button)findViewById(R.id.ButtonB4);
-		casilla[3][2]=(Button)findViewById(R.id.ButtonC4);
-		casilla[3][3]=(Button)findViewById(R.id.ButtonD4);
-		casilla[3][4]=(Button)findViewById(R.id.ButtonE4);
-		casilla[3][5]=(Button)findViewById(R.id.ButtonF4);
-		casilla[4][0]=(Button)findViewById(R.id.ButtonA5);
-		casilla[4][1]=(Button)findViewById(R.id.ButtonB5);
-		casilla[4][2]=(Button)findViewById(R.id.ButtonC5);
-		casilla[4][3]=(Button)findViewById(R.id.ButtonD5);
-		casilla[4][4]=(Button)findViewById(R.id.ButtonE5);
-		casilla[4][5]=(Button)findViewById(R.id.ButtonF5);
-		casilla[5][0]=(Button)findViewById(R.id.ButtonA6);
-		casilla[5][1]=(Button)findViewById(R.id.ButtonB6);
-		casilla[5][2]=(Button)findViewById(R.id.ButtonC6);
-		casilla[5][3]=(Button)findViewById(R.id.ButtonD6);
-		casilla[5][4]=(Button)findViewById(R.id.ButtonE6);
-		casilla[5][5]=(Button)findViewById(R.id.ButtonF6);
-		int i=1;
-		int tocado=0;    	
-    	switch (Tablero.tablcpu[x][y][2]) {
-    	case 1:
-    		casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
-    		hundido(x,y);
-    		break;
-    	
-    	case 2:
-    	
-    		if ((Tablero.tablcpu[x+1][y][1]==1 && Tablero.tablcpu[x+1][y][0]==1 )||(Tablero.tablcpu[x-1][y][1]==1 && Tablero.tablcpu[x-1][y][0]==1 )||(Tablero.tablcpu[x][y+1][1]==1 && Tablero.tablcpu[x][y+1][0]==1 )||(Tablero.tablcpu[x][y-1][1]==1 && Tablero.tablcpu[x][y-1][0]==1 )){
-    			casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
-    			hundido(x,y);
-    		} else {
-//				texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
-    			Toast.makeText(this, "Tocado", Toast.LENGTH_SHORT).show();
-				casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
+			stopService(new Intent(this, Servicio.class));
+			startService(new Intent(this, Servicio2.class));
+			// texto.setText("Agua");
+			Toast.makeText(this, "Agua", Toast.LENGTH_SHORT).show();
+			casilla[x - 3][y - 3].setBackgroundResource(R.drawable.agua);
+			for (int f = 0; f < 6; f++) {
+				for (int c = 0; c < 6; c++) {
+					casilla[f][c].setClickable(false);
+					Log.d("Prueba", "f " + f + " c " + c);
+				}
 			}
-    		break;
-    	
-    	case 3:
+			final Intent intent = new Intent(JuegaJugadorActivity.this,
+					JuegaCpuActivity.class);
+			Thread timer = new Thread() {
+				public void run() {
+					try {
+						sleep(1500);
 
-    		while(i<3&&tocado==0) {
-    			
-    			if (((Tablero.tablcpu[x+i][y][0]==0 || Tablero.tablcpu[x+i][y][1]==0) || Tablero.tablcpu[x+i][y][2]!=3)
-    				&&((Tablero.tablcpu[x-i][y][0]==0 || Tablero.tablcpu[x-i][y][1]==0)|| Tablero.tablcpu[x-i][y][2]!=3 )
-    				&&((Tablero.tablcpu[x][y+i][0]==0 || Tablero.tablcpu[x][y+i][1]==0) || Tablero.tablcpu[x][y+i][2]!=3)
-    				&&((Tablero.tablcpu[x][y-i][0]==0 || Tablero.tablcpu[x][y-i][1]==0) || Tablero.tablcpu[x][y-i][2]!=3))
-    			{
-        			tocado=1;
-       			}else {
-        			tocado=0;}
-    			i++;
-    		}
-    		if (tocado==1){
-//    			texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
-    			Toast.makeText(this, "Tocado", Toast.LENGTH_SHORT).show();
-    			casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
-    		}else {
-    			casilla[x-3][y-3].setBackgroundResource(R.drawable.explosion);
-    			hundido(x,y);
+						startActivity(intent);
+						finish();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+			};
+			timer.start();
+
+		} else {
+			tocadoOhundido(x, y, texto);
+		}
+	}
+
+	public void tocadoOhundido(int x, int y, TextView texto) {
+
+		stopService(new Intent(this, Servicio.class));
+		startService(new Intent(this, Servicio.class));
+		final Button casilla[][] = new Button[6][6];
+		casilla[0][0] = (Button) findViewById(R.id.ButtonA1);
+		casilla[0][1] = (Button) findViewById(R.id.ButtonB1);
+		casilla[0][2] = (Button) findViewById(R.id.ButtonC1);
+		casilla[0][3] = (Button) findViewById(R.id.ButtonD1);
+		casilla[0][4] = (Button) findViewById(R.id.ButtonE1);
+		casilla[0][5] = (Button) findViewById(R.id.ButtonF1);
+		casilla[1][0] = (Button) findViewById(R.id.ButtonA2);
+		casilla[1][1] = (Button) findViewById(R.id.ButtonB2);
+		casilla[1][2] = (Button) findViewById(R.id.ButtonC2);
+		casilla[1][3] = (Button) findViewById(R.id.ButtonD2);
+		casilla[1][4] = (Button) findViewById(R.id.ButtonE2);
+		casilla[1][5] = (Button) findViewById(R.id.ButtonF2);
+		casilla[2][0] = (Button) findViewById(R.id.ButtonA3);
+		casilla[2][1] = (Button) findViewById(R.id.ButtonB3);
+		casilla[2][2] = (Button) findViewById(R.id.ButtonC3);
+		casilla[2][3] = (Button) findViewById(R.id.ButtonD3);
+		casilla[2][4] = (Button) findViewById(R.id.ButtonE3);
+		casilla[2][5] = (Button) findViewById(R.id.ButtonF3);
+		casilla[3][0] = (Button) findViewById(R.id.ButtonA4);
+		casilla[3][1] = (Button) findViewById(R.id.ButtonB4);
+		casilla[3][2] = (Button) findViewById(R.id.ButtonC4);
+		casilla[3][3] = (Button) findViewById(R.id.ButtonD4);
+		casilla[3][4] = (Button) findViewById(R.id.ButtonE4);
+		casilla[3][5] = (Button) findViewById(R.id.ButtonF4);
+		casilla[4][0] = (Button) findViewById(R.id.ButtonA5);
+		casilla[4][1] = (Button) findViewById(R.id.ButtonB5);
+		casilla[4][2] = (Button) findViewById(R.id.ButtonC5);
+		casilla[4][3] = (Button) findViewById(R.id.ButtonD5);
+		casilla[4][4] = (Button) findViewById(R.id.ButtonE5);
+		casilla[4][5] = (Button) findViewById(R.id.ButtonF5);
+		casilla[5][0] = (Button) findViewById(R.id.ButtonA6);
+		casilla[5][1] = (Button) findViewById(R.id.ButtonB6);
+		casilla[5][2] = (Button) findViewById(R.id.ButtonC6);
+		casilla[5][3] = (Button) findViewById(R.id.ButtonD6);
+		casilla[5][4] = (Button) findViewById(R.id.ButtonE6);
+		casilla[5][5] = (Button) findViewById(R.id.ButtonF6);
+		int i = 1;
+		int tocado = 0;
+		switch (Tablero.tablcpu[x][y][2]) {
+		case 1:
+			casilla[x - 3][y - 3].setBackgroundResource(R.drawable.explosion);
+			hundido(x, y);
+			break;
+
+		case 2:
+
+			if ((Tablero.tablcpu[x + 1][y][1] == 1 && Tablero.tablcpu[x + 1][y][0] == 1)
+					|| (Tablero.tablcpu[x - 1][y][1] == 1 && Tablero.tablcpu[x - 1][y][0] == 1)
+					|| (Tablero.tablcpu[x][y + 1][1] == 1 && Tablero.tablcpu[x][y + 1][0] == 1)
+					|| (Tablero.tablcpu[x][y - 1][1] == 1 && Tablero.tablcpu[x][y - 1][0] == 1)) {
+				casilla[x - 3][y - 3]
+						.setBackgroundResource(R.drawable.explosion);
+				hundido(x, y);
+			} else {
+				// texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
+				Toast.makeText(this, "Tocado", Toast.LENGTH_SHORT).show();
+				casilla[x - 3][y - 3]
+						.setBackgroundResource(R.drawable.explosion);
 			}
-    		break;
-    	
-    	}
-    	
-    }
-    public void hundido(int x, int y){
-    	TextView x1 =(TextView)findViewById(R.id.Barco1);
-    	TextView x2 =(TextView)findViewById(R.id.Barco2);
-    	TextView x3 =(TextView)findViewById(R.id.Barco3);
-    	TextView texto = (TextView)findViewById(R.id.estado);
-		//barco1.setText("");
-//		texto.setText("Tocado y ¡¡¡HUNDIDO!!!");
+			break;
+
+		case 3:
+
+			while (i < 3 && tocado == 0) {
+
+				if (((Tablero.tablcpu[x + i][y][0] == 0 || Tablero.tablcpu[x
+						+ i][y][1] == 0) || Tablero.tablcpu[x + i][y][2] != 3)
+						&& ((Tablero.tablcpu[x - i][y][0] == 0 || Tablero.tablcpu[x
+								- i][y][1] == 0) || Tablero.tablcpu[x - i][y][2] != 3)
+						&& ((Tablero.tablcpu[x][y + i][0] == 0 || Tablero.tablcpu[x][y
+								+ i][1] == 0) || Tablero.tablcpu[x][y + i][2] != 3)
+						&& ((Tablero.tablcpu[x][y - i][0] == 0 || Tablero.tablcpu[x][y
+								- i][1] == 0) || Tablero.tablcpu[x][y - i][2] != 3)) {
+					tocado = 1;
+				} else {
+					tocado = 0;
+				}
+				i++;
+			}
+			if (tocado == 1) {
+				// texto.setText("Tocado  "+Tablero.tablcpu[x][y][2]);
+				Toast.makeText(this, "Tocado", Toast.LENGTH_SHORT).show();
+				casilla[x - 3][y - 3]
+						.setBackgroundResource(R.drawable.explosion);
+			} else {
+				casilla[x - 3][y - 3]
+						.setBackgroundResource(R.drawable.explosion);
+				hundido(x, y);
+			}
+			break;
+
+		}
+
+	}
+
+	public void hundido(int x, int y) {
+		TextView x1 = (TextView) findViewById(R.id.Barco1);
+		TextView x2 = (TextView) findViewById(R.id.Barco2);
+		TextView x3 = (TextView) findViewById(R.id.Barco3);
+		TextView texto = (TextView) findViewById(R.id.estado);
+		// barco1.setText("");
+		// texto.setText("Tocado y ¡¡¡HUNDIDO!!!");
 		Toast.makeText(this, "Tocado y Hundido", Toast.LENGTH_SHORT).show();
 		switch (Tablero.tablcpu[x][y][2]) {
 		case 1:
-			String num1=(String)x1.getText();
+			String num1 = (String) x1.getText();
 			int a = Integer.parseInt(num1);
-			a=a-1;
-			x1.setText(""+a+"");
+			a = a - 1;
+			x1.setText("" + a + "");
 			break;
 		case 2:
-			String num2=(String)x2.getText();
+			String num2 = (String) x2.getText();
 			int b = Integer.parseInt(num2);
-			b=b-1;
-			x2.setText(""+b+"");
+			b = b - 1;
+			x2.setText("" + b + "");
 			break;
 		case 3:
-			String num3=(String)x3.getText();
+			String num3 = (String) x3.getText();
 			int c = Integer.parseInt(num3);
-			c=c-1;
-			x3.setText(""+c+"");
+			c = c - 1;
+			x3.setText("" + c + "");
 			break;
 		}
 		barcos--;
-	 
-		if(barcos==0){
-			Toast toast =Toast.makeText(getApplicationContext(), "¡HAS GANADO!", Toast.LENGTH_LONG);
-			SharedPreferences prefs =
-				     getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+
+		if (barcos == 0) {
+			Toast.makeText(getApplicationContext(),
+					"�HAS GANADO!", Toast.LENGTH_LONG).show();
+			SharedPreferences prefs = getSharedPreferences("MisPreferencias",
+					Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putBoolean("continuar", false);
 			editor.commit();
-			toast.show();
-			Intent a = new Intent(JuegaJugadorActivity.this, HundirLaFlotaActivity.class);
-			startActivity(a);
-			finish();
-		}else{
+			final Intent a = new Intent(JuegaJugadorActivity.this,
+					HundirLaFlotaActivity.class);
+			Thread timer2 = new Thread() {
+				public void run() {
+					try {
+						sleep(2500);
+						startActivity(a);
+						finish();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+			};
+			timer2.start();
+		} else {
 			return;
 		}
-    }
-    
-    public boolean onCreateOptionsMenu(Menu menu) {
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
 	}
-    public boolean onOptionsItemSelected(MenuItem item) {
+
+	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.nueva_partida:
 			startActivity(new Intent(this, CrearTableroJugadorActivity.class));
 			finish();
 			return true;
-			
+
 		case R.id.ayuda:
 			startActivity(new Intent(this, AyudaActivity.class));
 			return true;
 		}
-    	return false;
+		return false;
 	}
-    @Override
-    protected void onPause() {
-    	super.onPause();
-    	TextView x1 =(TextView)findViewById(R.id.Barco1);
-    	TextView x2 =(TextView)findViewById(R.id.Barco2);
-    	TextView x3 =(TextView)findViewById(R.id.Barco3);
-    	BufferedWriter fichero;
-    	try {
-    		fichero = new BufferedWriter(new FileWriter(
-    			getFilesDir()+"/tablcpu.txt"));
-    		int fil,col,pos;
-    		for (fil=3;fil<9;fil++)
-    		{
-    			for (col=3;col<9;col++)
-    			{
-    				for (pos=0;pos<3;pos++)
-    				{
-    					String numero = ""+Tablero.tablcpu[fil][col][pos];
-    					fichero.write((String)numero);
-    				}
-    				fichero.newLine();
-    			}
-    		}
-    		String a=""+barcos;
-    		fichero.write((String)a);
-    		fichero.newLine();
-    		fichero.write((String) x1.getText());
-    		fichero.newLine();
-    		fichero.write((String) x2.getText());
-    		fichero.newLine();
-    		fichero.write((String) x3.getText());
-    		fichero.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
-    }
-    
-    
-    
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-		
-		if (keyCode==KeyEvent.KEYCODE_BACK) {
-		 
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		TextView x1 = (TextView) findViewById(R.id.Barco1);
+		TextView x2 = (TextView) findViewById(R.id.Barco2);
+		TextView x3 = (TextView) findViewById(R.id.Barco3);
+		BufferedWriter fichero;
+		try {
+			fichero = new BufferedWriter(new FileWriter(getFilesDir()
+					+ "/tablcpu.txt"));
+			int fil, col, pos;
+			for (fil = 3; fil < 9; fil++) {
+				for (col = 3; col < 9; col++) {
+					for (pos = 0; pos < 3; pos++) {
+						String numero = "" + Tablero.tablcpu[fil][col][pos];
+						fichero.write((String) numero);
+					}
+					fichero.newLine();
+				}
+			}
+			String a = "" + barcos;
+			fichero.write((String) a);
+			fichero.newLine();
+			fichero.write((String) x1.getText());
+			fichero.newLine();
+			fichero.write((String) x2.getText());
+			fichero.newLine();
+			fichero.write((String) x3.getText());
+			fichero.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+
 			showDialog(0);
 			return true;
-		}else{
+		} else {
 			return super.onKeyDown(keyCode, event);
 		}
-		
+
 	}
-    
-    protected Dialog onCreateDialog(int id){
-    	Dialog dialog;
-    	switch (id) {
+
+	protected Dialog onCreateDialog(int id) {
+		Dialog dialog;
+		switch (id) {
 		case 0:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("¿Está seguro que quiere salir?").setCancelable(false).setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					startActivity(new Intent(JuegaJugadorActivity.this,HundirLaFlotaActivity.class));
-					finish();
-				}
-			}).setNegativeButton("No", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					dialog.cancel();
-				}
-			});
-			dialog=builder.create();
+			builder.setMessage("�Est� seguro que quiere salir?")
+					.setCancelable(false)
+					.setPositiveButton("S�",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									startActivity(new Intent(
+											JuegaJugadorActivity.this,
+											HundirLaFlotaActivity.class));
+									finish();
+								}
+							})
+					.setNegativeButton("No",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int id) {
+									dialog.cancel();
+								}
+							});
+			dialog = builder.create();
 			break;
 		default:
-			dialog=null;
+			dialog = null;
 			break;
 		}
-    	return dialog;
-    }
-   
+		return dialog;
+	}
+
 }

@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonF1"
@@ -62,7 +62,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/agua" />
-
             </TableRow>
 
             <TableRow
@@ -70,7 +69,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
-
 
                 <Button
                     android:id="@+id/ButtonA2"
@@ -91,21 +89,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonD2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonE2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonF2"
@@ -113,7 +111,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/agua" />
-
             </TableRow>
 
             <TableRow
@@ -127,7 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonB3"
@@ -141,29 +138,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonD3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonE3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonF3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
-
+                    android:background="@drawable/agua" />
             </TableRow>
 
             <TableRow
@@ -171,7 +167,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
-
 
                 <Button
                     android:id="@+id/ButtonA4"
@@ -192,7 +187,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonD4"
@@ -214,7 +209,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/agua" />
-
             </TableRow>
 
             <TableRow
@@ -223,13 +217,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" >
 
-
                 <Button
                     android:id="@+id/ButtonA5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonB5"
@@ -265,7 +258,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/agua" />
-
             </TableRow>
 
             <TableRow
@@ -300,7 +292,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/agua"/>
+                    android:background="@drawable/agua" />
 
                 <Button
                     android:id="@+id/ButtonE6"
@@ -315,9 +307,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/agua" />
-
             </TableRow>
-
         </TableLayout>
 
         <RelativeLayout
@@ -343,7 +333,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@+id/textView1"
                 android:layout_centerVertical="true"
-                android:text="@string/continuar" />
+                android:text="@string/comenzar" />
 
             <TableLayout
                 android:id="@+id/tableLayout2"
@@ -360,9 +350,9 @@
 
                     <Button
                         android:id="@+id/b1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1" />
+                        android:layout_width="20dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/barco_de_1" />
 
                     <TextView
                         android:id="@+id/X1"
@@ -387,9 +377,9 @@
 
                     <Button
                         android:id="@+id/b2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2" />
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/barco_de_2" />
 
                     <TextView
                         android:id="@+id/X2"
@@ -414,9 +404,9 @@
 
                     <Button
                         android:id="@+id/b3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3" />
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/barco_de_3" />
 
                     <TextView
                         android:id="@+id/X4"
@@ -434,16 +424,17 @@
                 </TableRow>
             </TableLayout>
 
-            <!-- <Button
+            <!--
+                 <Button
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/tableLayout2"
                 android:layout_alignLeft="@+id/Continuar"
-                android:text="@string/deshacer" /> -->
+                android:text="@string/deshacer" />
+            -->
 
         </RelativeLayout>
-
     </LinearLayout>
 
 </LinearLayout>

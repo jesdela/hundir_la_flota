@@ -62,9 +62,9 @@ public class HundirLaFlotaActivity extends Activity {
 		switch (id) {
 		case 0:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Â¿EstÃ¡ seguro que quiere salir?")
+			builder.setMessage("¿Está seguro que quiere salir?")
 					.setCancelable(false)
-					.setPositiveButton("SÃ­",
+					.setPositiveButton("Sí",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int id) {

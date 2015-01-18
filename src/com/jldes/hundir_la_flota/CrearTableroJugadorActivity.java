@@ -27,7 +27,8 @@ public class CrearTableroJugadorActivity extends Activity {
 	protected boolean seguir1 = false;
 	protected boolean seguir3 = false;
 	protected boolean seguir2 = false;
-	Button continuar; 
+	Button continuar;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class CrearTableroJugadorActivity extends Activity {
 		final Button boton1 = (Button) findViewById(R.id.b1);
 		final Button boton2 = (Button) findViewById(R.id.b2);
 		final Button boton3 = (Button) findViewById(R.id.b3);
-		continuar= (Button) findViewById(R.id.Continuar);
+		continuar = (Button) findViewById(R.id.Continuar);
 		final TextView texto1 = (TextView) findViewById(R.id.Barco1);
 		final TextView texto2 = (TextView) findViewById(R.id.Barco2);
 		final TextView texto3 = (TextView) findViewById(R.id.Barco3);
@@ -152,7 +153,7 @@ public class CrearTableroJugadorActivity extends Activity {
 				Toast toast = Toast
 						.makeText(
 								getApplicationContext(),
-								"La CPU est√° creando su tablero. \n		Espere por favor... ",
+								"La CPU est· creando su tablero. \n		Espere por favor... ",
 								Toast.LENGTH_LONG);
 				toast.show();
 				SharedPreferences prefs = getSharedPreferences(
@@ -241,45 +242,53 @@ public class CrearTableroJugadorActivity extends Activity {
 	public void creartablero(final int numb, final int estado) {
 		for (columna = 0; columna < 6; columna++) {
 			for (fila = 0; fila < 6; fila++) {
-				casilla[columna][fila].setOnClickListener(new OnClickListener() {
+				casilla[columna][fila]
+						.setOnClickListener(new OnClickListener() {
 
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						v.setBackgroundResource(R.drawable.radar);
-						Casilla posicion = new Casilla();
-						posicion.barco=numb;
-						for (int columna2 = 0; columna2 < 6; columna2++) {
-							for (int fila2 = 0; fila2 < 6; fila2++) {
-								if(casilla[columna2][fila2].equals(v)){
-									Tablero.tabljug[columna2 + 3][fila2 + 3][0] = 1;
-									Tablero.tabljug[columna2 + 3][fila2 + 3][2] = numb;
-									posicion.x=columna2;
-									posicion.y=fila2;
+							public void onClick(View v) {
+								// TODO Auto-generated method stub
+								v.setBackgroundResource(R.drawable.barco_agua);
+								Casilla posicion = new Casilla();
+								posicion.barco = numb;
+								for (int columna2 = 0; columna2 < 6; columna2++) {
+									for (int fila2 = 0; fila2 < 6; fila2++) {
+										if (casilla[columna2][fila2].equals(v)) {
+											Tablero.tabljug[columna2 + 3][fila2 + 3][0] = 1;
+											Tablero.tabljug[columna2 + 3][fila2 + 3][2] = numb;
+											posicion.x = columna2;
+											posicion.y = fila2;
+										}
+									}
 								}
+								arrayList.add(posicion);
+								for (int columna2 = 0; columna2 < 6; columna2++) {
+									for (int fila2 = 0; fila2 < 6; fila2++) {
+										Log.d("Prueba", "posicion " + columna2
+												+ " " + fila2);
+										casilla[columna2][fila2]
+												.setEnabled(false);
+									}
+								}
+								if (estado == numb) {
+									for (int i = 0; i < numb; i++) {
+										casilla[arrayList.get(arrayList.size() - (i+1)).x][arrayList
+												.get(arrayList.size() - (i+1)).y]
+												.setBackgroundResource(R.drawable.barco_agua);
+									}
+									if (seguir1 && seguir2 && seguir3) {
+										continuar.setEnabled(true);
+									} else {
+										clickable();
+									}
+								} else {
+									creartablero(numb, estado + 1);
+								}
+
 							}
-						}
-						arrayList.add(posicion);
-						for (int columna2 = 0; columna2 < 6; columna2++) {
-							for (int fila2 = 0; fila2 < 6; fila2++) {
-								Log.d("Prueba", "posicion "+columna2+" "+fila2);
-								casilla[columna2][fila2].setEnabled(false);
-							}
-						}
-						if (estado==numb) {
-							if (seguir1 && seguir2 && seguir3) {
-								continuar.setEnabled(true);
-							} else {
-								clickable();
-							}
-						} else {
-							creartablero(numb, estado+1);
-						}
-						
-					}
-				});
+						});
 			}
 		}
-		Log.d("Prueba", ""+estado);
+		Log.d("Prueba", "" + estado);
 		switch (estado) {
 		case 1:
 			for (columna = 0; columna < 6; columna++) {
@@ -345,18 +354,20 @@ public class CrearTableroJugadorActivity extends Activity {
 			arrayList2.clear();
 			break;
 		case 3:
-			Log.d("Prueba", "size "+arrayList.size());
+			Log.d("Prueba", "size " + arrayList.size());
 			if (((0 <= ((2 * arrayList.get(arrayList.size() - 1).x) - arrayList
 					.get(arrayList.size() - 2).x)) && (((2 * arrayList
 					.get(arrayList.size() - 1).x) - arrayList.get(arrayList
 					.size() - 2).x) <= 5))
-					&& ((0 < ((2 * arrayList.get(arrayList.size() - 1).y) - arrayList
+					&& ((0 <= ((2 * arrayList.get(arrayList.size() - 1).y) - arrayList
 							.get(arrayList.size() - 2).y)) && (((2 * arrayList
 							.get(arrayList.size() - 1).y) - arrayList
 							.get(arrayList.size() - 2).y) <= 5))) {
-				casilla[(2 * arrayList.get(arrayList.size() - 1).x) - arrayList
-						.get(arrayList.size() - 2).x][(2 * arrayList.get(arrayList.size() - 1).y) - arrayList
-						  							.get(arrayList.size() - 2).y].setEnabled(true);
+				casilla[(2 * arrayList.get(arrayList.size() - 1).x)
+						- arrayList.get(arrayList.size() - 2).x][(2 * arrayList
+						.get(arrayList.size() - 1).y)
+						- arrayList.get(arrayList.size() - 2).y]
+						.setEnabled(true);
 			}
 			if (((0 <= ((2 * arrayList.get(arrayList.size() - 2).x) - arrayList
 					.get(arrayList.size() - 1).x)) && (((2 * arrayList
@@ -366,9 +377,11 @@ public class CrearTableroJugadorActivity extends Activity {
 							.get(arrayList.size() - 1).y)) && (((2 * arrayList
 							.get(arrayList.size() - 2).y) - arrayList
 							.get(arrayList.size() - 1).y) <= 5))) {
-				casilla[(2 * arrayList.get(arrayList.size() - 2).x) - arrayList
-						.get(arrayList.size() - 1).x][(2 * arrayList.get(arrayList.size() - 2).y) - arrayList
-						  							.get(arrayList.size() - 1).y].setEnabled(true);
+				casilla[(2 * arrayList.get(arrayList.size() - 2).x)
+						- arrayList.get(arrayList.size() - 1).x][(2 * arrayList
+						.get(arrayList.size() - 2).y)
+						- arrayList.get(arrayList.size() - 1).y]
+						.setEnabled(true);
 			}
 
 			ArrayList<Casilla> arrayList3 = new ArrayList<Casilla>();

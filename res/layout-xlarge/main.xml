@@ -14,13 +14,13 @@
 
         <Button
             android:id="@+id/jugar"
-            style="@android:style/Widget.ListPopupWindow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="@string/jugar" />
-
+            android:padding="24dp"
+            android:text="@string/jugar"
+            android:textSize="48sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -30,13 +30,13 @@
 
         <Button
             android:id="@+id/ayuda"
-            style="@android:style/Widget.ListPopupWindow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="@string/ayuda" />
-
+            android:padding="24dp"
+            android:text="@string/ayuda"
+            android:textSize="48sp" />
     </RelativeLayout>
 
 </LinearLayout>
